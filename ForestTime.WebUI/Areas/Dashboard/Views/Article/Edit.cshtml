@@ -1,0 +1,42 @@
+﻿@model Article 
+
+<form method="post">
+    <input class="form-control"asp-for="Title" />
+    <br/>
+    <input class="form-control" asp-for="Content" />
+    <br/>
+    <input class="form-control" asp-for="PhotoUrl" />
+    <br/>
+    
+    <select name="tagIds" class="form-control" multiple>
+        @foreach (var tag in ViewData["taglist"] as List<Tag>)
+        {
+            if (Model.ArticleTags.Select(x => x.TagId).Contains(tag.Id))
+            {
+                <option value="@tag.Id" selected>@tag.TagName</option>
+            }
+            else
+            {
+                <option value="@tag.Id">@tag.TagName</option>
+            }
+        }
+
+
+        }
+    </select>
+    <select name="categoryId" class="form-control">
+        @foreach (var cat in ViewData["catlist"] as List<Category>)
+        {
+            if (Model.CategoryId == cat.Id)
+            {
+                <option value="@cat.Id" selected>@cat.CategoryName</option>
+            }
+            else
+            {
+                <option value="@cat.Id">@cat.CategoryName</option>
+            }
+        }
+    </select>
+
+    <input type="submit" value="Update" />
+</form>

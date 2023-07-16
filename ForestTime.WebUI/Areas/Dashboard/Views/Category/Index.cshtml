@@ -1,0 +1,28 @@
+﻿@model List<Category>
+<br />
+<a class="btn btn-primary" href="/dashboard/category/create" role="button">Create</a>
+<br />
+<br />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">CategoryName</th>
+            <th scope="col">CreatedDate</th>
+            <th scope="col">UpdatedDate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tag in Model)
+        {
+            <tr>
+                <th scope="row">@tag.Id</th>
+                <td>@tag.CategoryName</td>
+                <td>@tag.CreatedDate</td>
+                <td>@tag.UpdatedDate</td>
+            </tr>
+        }
+
+    </tbody>
+</table>

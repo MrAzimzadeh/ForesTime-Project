@@ -1,0 +1,29 @@
+﻿<form method="post">
+    <div class="card-body">
+        <div class="form-group">
+            <h1 class="card-title">Create article</h1>
+        </div>
+        <div class="form-group">
+            <input type="text" name="Title" class="form-control" placeholder="Title" />
+        </div>
+        <div class="form-group">
+            <input type="text" name="Content" class="form-control"placeholder="Content" />
+        </div>
+        <div class="form-group">
+            <input type="text" name="PhotoUrl" class="form-control"placeholder="PhotoUrl" />
+        </div>
+        <div class="form-group">
+            <h4>Tags</h4>
+            <select class="form-control" name="tagIds" asp-items="@ViewBag.Tags" multiple>
+            </select>
+        </div>
+        <div class="form-group">
+            <h4>Categories</h4>
+            <select class="form-control" name="categoryId" asp-items="@ViewBag.Categories" >
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-success" value="Create" />
+        </div>
+    </div>
+</form>

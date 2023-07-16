@@ -1,0 +1,28 @@
+﻿@model List<Tag>
+<br />
+<a class="btn btn-primary" href="/dashboard/tag/create" role="button">Create</a>
+<br />
+<br />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">TagName</th>
+            <th scope="col">CreatedDate</th>
+            <th scope="col">UpdatedDate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tag in Model)
+        {   
+        <tr>
+            <th scope="row">@tag.Id</th>
+            <td>@tag.TagName</td>
+            <td>@tag.CreatedDate</td>
+            <td>@tag.UpdatedDate</td>
+        </tr>
+        }
+        
+    </tbody>
+</table>

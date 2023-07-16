@@ -1,0 +1,73 @@
+﻿@model List<Article>
+<br />
+<a class="btn btn-primary" href="/dashboard/article/create" role="button">Create</a>
+<br />
+<br />
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>PhotoUrl</th>
+                            <th>Title</th>
+                            <th>User</th>
+                            <th>Views</th>
+                            <th>Tags</th>
+                        <th>Categories</th>
+                            <th>Settings</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>PhotoUrl</th>
+                            <th>Title</th>
+                            <th>User</th>
+                            <th>Views</th>
+                            <th>Tags</th>
+                            <th>Categories</th>
+                            <th>Settings</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach(var article in Model){
+                        <tr>
+                            <td>
+                                <img height="100" width="70"src="@article.PhotoUrl" />
+                            </td>
+                            <td>@article.Title</td>
+                            <td>@article.User.FirstName</td>
+                            <td>@article.Views</td>
+                            <td>
+                                @foreach(var tag in article.ArticleTags){
+                                    <span class="badge badge-success">@tag.Tag.TagName</span>
+                                }
+                            </td>
+                            <td>@article.Category.CategoryName </td>
+                            <td>
+                                <a class="btn btn-success" href="/dashboard/article/edit/@article.Id">Edit</a><br /><br />
+                                <a class="btn btn-primary" href="/dashboard/article/detail/@article.Id">Detail</a><br /><br />
+                                <a class="btn btn-danger" href="/dashboard/article/delete/@article.Id">Delete</a>
+                            </td>
+                        </tr>}
+   
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+@section Scripts{
+    <!-- Page level plugins -->
+    <script src="~/admin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/admin/js/demo/datatables-demo.js"></script>
+
+}
+
